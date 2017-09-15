@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.mypackage.sample;
+package org.camp.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Random;
+
 
 /**
  *
@@ -32,13 +33,14 @@ public class FortuneTelling extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-        //大吉・中吉・吉・半吉・末小吉・凶・小凶・半凶・末凶・凶・大凶
-        String luckList[] = {"大吉", "中吉", "吉", "半吉", "末小吉", "凶", "小凶", "半凶", "末凶", "凶", "大凶"};
-        //乱数クラス生成
-        Random rand = new Random();
-        //乱数所得
-        Integer index = rand.nextInt(luckList.length);
-        out.print("あなたの運勢は・・・？" + luckList[index]);
+            //[luckList]の中に大吉・中吉・吉・半吉・末小吉・凶・小凶・半凶・末凶・凶・大凶を入れる
+            String luckList[] = {"大吉", "中吉", "吉", "半吉", "末小吉", "凶", "小凶", "半凶", "末凶", "凶", "大凶"};
+            
+            Random rand = new Random(); //ランダムに数字を選ぶよ！の準備
+            
+            Integer index = rand.nextInt(luckList.length); //LuckListの中に入っている要素の数を数えて[index]に何番目か選んだものを渡している
+            //後はそれを画面へ出力する
+            out.print("あなたの運勢は・・・？" + luckList[index]);
         }
     }
 
