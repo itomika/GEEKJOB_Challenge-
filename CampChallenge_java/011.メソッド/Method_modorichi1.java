@@ -32,11 +32,11 @@ public class Method_modorichi1 extends HttpServlet {
     //また、メソッドの呼び出し側で戻り値を評価し、trueなら「この処理は正しく実行できました」
     //そうでないなら「正しく実行できませんでした」と表示してください。
             
-        boolean myprofile(PrintWriter pw){  //myprofile下記の内容を出力する
+        boolean myprofile(PrintWriter pw){  //myprofileメソッド＝下記の内容を出力する
             pw.print("私の名前は伊藤です<br>");
             pw.print("生年月日は1989年10月31日です<br>");
             pw.print("趣味は映画鑑賞です<br>");
-            return true;    //trueがに返される
+            return true;    
         }   
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
