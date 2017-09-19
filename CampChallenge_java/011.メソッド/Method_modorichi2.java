@@ -47,7 +47,7 @@ public class Method_modorichi2 extends HttpServlet {
             
             String[] data3 = data();        
             for(int i=1;i<4;i++){   //戻り値のID以外を表示したいので1以上4以下を繰り返して
-                out.print(data3[i] + "<br>");   //上の処理をしているdata3の要素数を表示したいので→data3[1]
+                out.print(data3[i] + "<br>");   //上の処理をしているdata3の要素数を表示したいので→data3[i]
             }
             
             out.println("<!DOCTYPE html>");
