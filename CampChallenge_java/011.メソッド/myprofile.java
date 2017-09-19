@@ -28,13 +28,15 @@ public class myprofile extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
+    
     // サーブレットクラス内
     // 自己紹介を表示するメソッド※メソッドはメソッドの中に書けない。下の[processRequest]メソッドより外に書く。
-        void myprofile(PrintWriter pw) {
-        pw.print("私の名前は伊藤です<br>");
-        pw.print("生年月日は1989年10月31日です<br>");
-        pw.print("趣味は映画鑑賞です<br>");
+        void myprofile(PrintWriter pw){
+            pw.print("私の名前は伊藤です<br>");
+            pw.print("生年月日は1989年10月31日です<br>");
+            pw.print("趣味は映画鑑賞です<br>");
         }
+        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -49,16 +51,16 @@ public class myprofile extends HttpServlet {
             out.println("<h1>Servlet myprofile at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        
+            
         // ユーザー定義関数の呼び出し
         //myprofile(out);
         
         // 「myprofile」と10回表示したい
         for (int i = 0; i < 10; i++) {
             myprofile(out);
-}
-   }
     }
+        }
+}
         
             
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
