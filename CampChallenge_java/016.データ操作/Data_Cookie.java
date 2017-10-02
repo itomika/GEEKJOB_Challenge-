@@ -38,35 +38,36 @@ public class Data_Cookie extends HttpServlet {
             Date now = new Date();  //当日の日時で情報作成
             
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            //SimpleDateFormatクラスの作成（日付書式）            
+                //SimpleDateFormatクラスの作成（日付書式）            
 
             out.print("現在の時刻は、" + sdf.format(now) + "　です。<br>"); //nowの中身を表示
             
             Cookie c = new Cookie("Lastlogin", sdf.format(now));
             //Cookieの作成（情報の書き込み）
             //データの名前はLastlogin、中身は当日の日時
-            //cookieは利用者のPCに保存される
             
             response.addCookie(c);
-            // Cookieの中身を取得
-            // getCookiesメソッドはCookieクラスの配列を返却
-            // 自分が利用したい情報を探す
-            // addCookieとgetCokieは連動していない（タイムラグがある）から、
-            // 初回のアクセスでは最終ログインが出てこない
+            //Cookieの中身を取得
+            //getCookiesメソッドはCookieクラスの配列を返却
+            //自分が利用したい情報を探す
+            //addCookieとgetCokieは連動していない（タイムラグがある）から、
+            //初回のアクセスでは最終ログインが出てこない
+            
             Cookie[] cs = request.getCookies();
 
-            // csとnullが等しくないなら
-            if (cs != null) {
-                // iがcsの要素数分より小さいうちは繰り返す
-                for (int i = 0; i < cs.length; i++) {
-                    // csのi番目　Lastloginというクッキー情報を探している
-                    // Cookieクラスで用意されているメソッドを確認
-                    // getName()は、Cookieの名前を返す
-                    // getValue()は、Cookieの値を返す
-                    // 返した名前と探している名前が一緒ならCookieの中身を返す
+            
+            if (cs != null) {   //csとnullが等しくないなら
+                
+                for (int i = 0; i < cs.length; i++) {   //iがcsの要素数分より小さいうちは繰り返す
+                   
                     if (cs[i].getName().equals("Lastlogin")) {
                         out.print("最後ログインは、" + cs[i].getValue() + "　です。");
                         break;
+            //csのi番目　Lastloginというクッキー情報を探している(Cookieクラスで用意されているメソッドを確認)
+            //getName()は、Cookieの名前を返す
+            //getValue()は、Cookieの値を返す
+            //返した名前と探している名前が一緒ならCookieの中身を返す            
+                        
                     }
                 }
             }
