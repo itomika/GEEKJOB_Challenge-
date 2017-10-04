@@ -61,7 +61,11 @@ public class DB_1 extends HttpServlet {
              //executeQueryの場合、実行結果をResultSetとして返却してくれます。
              
              while(db_data.next()){
+                out.print("ID：" + db_data.getString("profilesID") + "<br>");
                 out.print("名前：" + db_data.getString("name") + "<br>");
+                out.print("tel：" + db_data.getString("tel") + "<br>");
+                out.print("年齢：" + db_data.getString("age") + "<br>");
+                out.print("生年月日：" + db_data.getString("birthday") + "<br>");
              //ResultSetからSQLの実行結果を取り出し、表示します。
              //nextメソッドで、データの有無を確認し、while文でデータがある限り取得し続ける
              //getStringメソッドは、１行のデータからnameカラムの情報を文字列として取得している
