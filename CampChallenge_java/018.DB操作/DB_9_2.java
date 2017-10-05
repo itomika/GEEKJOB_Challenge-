@@ -50,9 +50,6 @@ public class DB_9_2 extends HttpServlet {
         
         Class.forName("com.mysql.jdbc.Driver").newInstance();
         db_con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ito", "ito", "itomika");
-        if (db_con != null) {
-            out.print("接続成功しました。<br>");  //接続の確認
-        }
             
         db_st = db_con.prepareStatement("insert into profiles values(?, ?, ?, ?, ?)");
         
